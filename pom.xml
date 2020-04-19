@@ -54,52 +54,52 @@
 
 
 
-            <!-- docker的maven插件，官网 https://github.com/spotify/docker-maven-plugin -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.13</version>
+            <!--&lt;!&ndash; docker的maven插件，官网 https://github.com/spotify/docker-maven-plugin &ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>docker-maven-plugin</artifactId>-->
+                <!--<version>0.4.13</version>-->
 
-                <!--将Docker命令绑定到Maven阶段,也就是使用maven的package命令打包时自动构建镜像-->
-                <executions>
-                    <execution>
-                        <id>build-image</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <!--&lt;!&ndash;将Docker命令绑定到Maven阶段,也就是使用maven的package命令打包时自动构建镜像&ndash;&gt;-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>build-image</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>build</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
 
-                <configuration>
-                    <!--配置 Docker 的主机地址-->
-                    <dockerHost>http://192.168.115.131:2375</dockerHost>
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;配置 Docker 的主机地址&ndash;&gt;-->
+                    <!--<dockerHost>http://192.168.115.131:2375</dockerHost>-->
 
-                    <!-- 镜像名称 -->
-                    <imageName>${project.artifactId}:latest</imageName>
+                    <!--&lt;!&ndash; 镜像名称 &ndash;&gt;-->
+                    <!--<imageName>${project.artifactId}:latest</imageName>-->
 
-                    <baseImage>java</baseImage>
+                    <!--<baseImage>java</baseImage>-->
 
-                    <forceTags>true</forceTags>
+                    <!--<forceTags>true</forceTags>-->
 
-                    <imageTags>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
+                    <!--<imageTags>-->
+                        <!--<imageTag>latest</imageTag>-->
+                    <!--</imageTags>-->
 
-                    <!--相当于Dokcerfile文件中的ENTRYPOINT ["java","-jar","/app.jar"]-->
-                    <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>
+                    <!--&lt;!&ndash;相当于Dokcerfile文件中的ENTRYPOINT ["java","-jar","/app.jar"]&ndash;&gt;-->
+                    <!--<entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>-->
 
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
+                    <!--<resources>-->
+                        <!--<resource>-->
+                            <!--<targetPath>/</targetPath>-->
+                            <!--<directory>${project.build.directory}</directory>-->
+                            <!--<include>${project.build.finalName}.jar</include>-->
+                        <!--</resource>-->
+                    <!--</resources>-->
 
-                </configuration>
+                <!--</configuration>-->
 
-            </plugin>
+            <!--</plugin>-->
 
         </plugins>
     </build>
